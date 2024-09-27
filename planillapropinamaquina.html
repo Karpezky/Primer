@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Fichas de Mesa</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: right;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #555;
+        }
+        td input[type="number"] {
+            width: 80px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: right;
+        }
+        .total {
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: right;
+            font-size: 1.2em;
+            color: #28a745;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        p {
+            text-align: center;
+            color: #777;
+        }
+        html, body {
+            height: 100%;
+            overflow: auto;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <label>Nombre</label>
+            <input type="text" id="nombre" oninput="saveData()">
+        </div>
+        <p>Hora de inicio: <span id="startTime"></span></p>
+        <h1>Registro de Propina MDA</h1>
+        <table>
+            <tr>
+                <th>Valor</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td>$20.000</td>
+                <td><input type="number" id="input1" oninput="convert(20000, 'input1', 'output1')" onfocus="focusInput('input1')"></td>
+                <td><span id="output1">$0</span></td>
+            </tr>
+            <tr>
+                <td>$10.000</td>
+                <td><input type="number" id="input2" oninput="convert(10000, 'input2', 'output2')" onfocus="focusInput('input2')"></td>
+                <td><span id="output2">$0</span></td>
+            </tr>
+            <tr>
+                <td>$5.000</td>
+                <td><input type="number" id="input3" oninput="convert(5000, 'input3', 'output3')" onfocus="focusInput('input3')"></td>
+                <td><span id="output3">$0</span></td>
+            </tr>
+            <tr>
+                <td>$2.000</td>
+                <td><input type="number" id="input4" oninput="convert(2000, 'input4', 'output4')" onfocus="focusInput('input4')"></td>
+                <td><span id="output4">$0</span></td>
+            </tr>
+            <tr>
+                <td>$1.000</td>
+                <td><input type="number" id="input5" oninput="convert(1000, 'input5', 'output5')" onfocus="focusInput('input5')"></td>
+                <td><span id="output5">$0</span></td>
+            </tr>
+            <tr>
+                <td>$500</td>
+                <td><input type="number" id="input6" oninput="convert(500, 'input6', 'output6')" onfocus="focusInput('input6')"></td>
+                <td><span id="output6">$0</span></td>
+            </tr>
+            <tr>
+                <td>$100</td>
+                <td><input type="number" id="input7" oninput="convert(100, 'input7', 'output7')" onfocus="focusInput('input7')"></td>
+                <td><span id="output7">$0</span></td>
+            </tr>
+            <tr>
+                <td>$50</td>
+                <td><input type="number" id="input8" oninput="convert(50, 'input8', 'output8')" onfocus="focusInput('input8')"></td>
+                <td><span id="output8">$0</span></td>
+            </tr>
+            <tr>
+                <td>$10</td>
+                <td><input type="number" id="input9" oninput="convert(10, 'input9', 'output9')" onfocus="focusInput('input9')"></td>
+                <td><span id="output9">$0</span></td>
+            </tr>
+            <tr>
+                <td>$5</td>
+                <td><input type="number" id="input10" oninput="convert(5, 'input10', 'output10')" onfocus="focusInput('input10')"></td>
+                <td><span id="output10">$0</span></td>
+            </tr>
+            <tr>
+                <td>$1</td>
+                <td><input type="number" id="input11" oninput="convert(1, 'input11', 'output11')" onfocus="focusInput('input11')"></td>
+                <td><span id="output11">$0</span></td>
+            </tr>
+        </table>
+        <div class="total">
+            Total: <span id="total">$0</span>
+        </div>
+    </div>
+
+    <script>
+        function convert(value, inputId, outputId) {
+            const input = document.getElementById(inputId).value;
+            const output = document.getElementById(outputId);
+            output.textContent = `$${(value * input).toLocaleString('es-CL')}`;
+            updateTotal();
+            saveData();
+        }
+
+        function updateTotal() {
+            const values = [20000, 10000, 5000, 2000, 1000, 500, 100, 50, 10, 5, 1];
+            let sum = 0;
+            values.forEach((value, index) => {
+                const input = document.getElementById(`input${index + 1}`).value;
+                sum += value * input;
+            });
+            document.getElementById('total').textContent = `$${sum.toLocaleString('es-CL')}`;
+        }
+
+        function saveData() {
+            const data = {
+                nombre: document.getElementById('nombre').value,
+                input1: document.getElementById('input1').value,
+                input2: document.getElementById('input2').value,
+                input3: document.getElementById('input3').value,
+                input4: document.getElementById('input4').value,
+                input5: document.getElementById('input5').value,
+                input6: document.getElementById('input6').value,
+                input7: document.getElementById('input7').value,
+                input8: document.getElementById('input8').value,
+                input9: document.getElementById('input9').value,
+                input10: document.getElementById('input10').value,
+                input11: document.getElementById('input11').value,
+                total: document.getElementById('total').textContent
+            };
+            localStorage.setItem('formData', JSON.stringify(data));
+        }
+
+        function loadData() {
+            const data = JSON.parse(localStorage.getItem('formData'));
+            if (data) {
+                document.getElementById('nombre').value = data.nombre;
+                document.getElementById('input1').value = data.input1;
+                document.getElementById('input2').value = data.input2;
+                document.getElementById('input3').value = data.input3;
+                document.getElementById('input4').value = data.input4;
+                document.getElementById('input5').value = data.input5;
+                document.getElementById('input6').value = data.input6;
+                document.getElementById('input7').value = data.input7;
+document.getElementById('input8').value = data.input8;
+document.getElementById('input9').value = data.input9;
+document.getElementById('input10').value = data.input10;
+document.getElementById('input11').value = data.input11;
+document.getElementById('total').textContent = data.total;
+}
+}
+
+function updateTime() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString('es-CL');
+    document.getElementById('startTime').textContent = timeString;
+}
+
+window.onload = function() {
+    loadData();
+    updateTime();
+};
+document.addEventListener('focusin', (event) => {
+    window.addEventListener('resize', function() {
+        if (window.innerHeight < 500) { // Ajusta este valor según el tamaño de tu pantalla
+            document.body.style.marginBottom = '300px'; // Ajusta este valor según sea necesario
+        } else {
+            document.body.style.marginBottom = '200px'; // Ajusta este valor según sea necesario
+        }
+    });
+});
+</script>
+</body>
+</html>
