@@ -77,157 +77,166 @@
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="row">
-            <label>Nombre</label>
-            <input type="text" id="nombre" oninput="saveData()">
+    <nav class="nav">
+        <div class="nav-links-container">
+            <a href="/index.html">Principal</a>
+            <a href="/Registro-de-Fichas-Mesa/index.html">Registro de Fichas de Mesa</a>
         </div>
-        <p>Hora de inicio: <span id="startTime"></span></p>
-        <h1>Registro de Propina MDA</h1>
-        <table>
-            <tr>
-                <th>Valor</th>
-                <th>Cantidad</th>
-                <th>Total</th>
-            </tr>
-            <tr>
-                <td>$20.000</td>
-                <td><input type="number" id="input1" oninput="convert(20000, 'input1', 'output1')" onfocus="focusInput('input1')"></td>
-                <td><span id="output1">$0</span></td>
-            </tr>
-            <tr>
-                <td>$10.000</td>
-                <td><input type="number" id="input2" oninput="convert(10000, 'input2', 'output2')" onfocus="focusInput('input2')"></td>
-                <td><span id="output2">$0</span></td>
-            </tr>
-            <tr>
-                <td>$5.000</td>
-                <td><input type="number" id="input3" oninput="convert(5000, 'input3', 'output3')" onfocus="focusInput('input3')"></td>
-                <td><span id="output3">$0</span></td>
-            </tr>
-            <tr>
-                <td>$2.000</td>
-                <td><input type="number" id="input4" oninput="convert(2000, 'input4', 'output4')" onfocus="focusInput('input4')"></td>
-                <td><span id="output4">$0</span></td>
-            </tr>
-            <tr>
-                <td>$1.000</td>
-                <td><input type="number" id="input5" oninput="convert(1000, 'input5', 'output5')" onfocus="focusInput('input5')"></td>
-                <td><span id="output5">$0</span></td>
-            </tr>
-            <tr>
-                <td>$500</td>
-                <td><input type="number" id="input6" oninput="convert(500, 'input6', 'output6')" onfocus="focusInput('input6')"></td>
-                <td><span id="output6">$0</span></td>
-            </tr>
-            <tr>
-                <td>$100</td>
-                <td><input type="number" id="input7" oninput="convert(100, 'input7', 'output7')" onfocus="focusInput('input7')"></td>
-                <td><span id="output7">$0</span></td>
-            </tr>
-            <tr>
-                <td>$50</td>
-                <td><input type="number" id="input8" oninput="convert(50, 'input8', 'output8')" onfocus="focusInput('input8')"></td>
-                <td><span id="output8">$0</span></td>
-            </tr>
-            <tr>
-                <td>$10</td>
-                <td><input type="number" id="input9" oninput="convert(10, 'input9', 'output9')" onfocus="focusInput('input9')"></td>
-                <td><span id="output9">$0</span></td>
-            </tr>
-            <tr>
-                <td>$5</td>
-                <td><input type="number" id="input10" oninput="convert(5, 'input10', 'output10')" onfocus="focusInput('input10')"></td>
-                <td><span id="output10">$0</span></td>
-            </tr>
-            <tr>
-                <td>$1</td>
-                <td><input type="number" id="input11" oninput="convert(1, 'input11', 'output11')" onfocus="focusInput('input11')"></td>
-                <td><span id="output11">$0</span></td>
-            </tr>
-        </table>
-        <div class="total">
-            Total: <span id="total">$0</span>
+    </nav>
+    <main class="main">
+        <div class="container">
+            <div class="row">
+                <label>Nombre</label>
+                <input type="text" id="nombre" oninput="saveData()">
+            </div>
+            <p>Hora de inicio: <span id="startTime"></span></p>
+            <h1>Registro de Propina MDA</h1>
+            <table>
+                <tr>
+                    <th>Valor</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td>$20.000</td>
+                    <td><input type="number" id="valor1" oninput="convert(20000, 'valor1', 'total1')" onfocus="focusInput('valor1')"></td>
+                    <td><span id="total1">$0</span></td>
+                </tr>
+                <tr>
+                    <td>$10.000</td>
+                    <td><input type="number" id="valor2" oninput="convert(10000, 'valor2', 'total2')" onfocus="focusInput('valor2')"></td>
+                    <td><span id="total2">$0</span></td>
+                </tr>
+                <tr>
+                    <td>$5.000</td>
+                    <td><input type="number" id="valor3" oninput="convert(5000, 'valor3', 'total3')" onfocus="focusInput('valor3')"></td>
+                    <td><span id="total3">$0</span></td>
+                </tr>
+                <tr>
+                    <td>$2.000</td>
+                    <td><input type="number" id="valor4" oninput="convert(2000, 'valor4', 'total4')" onfocus="focusInput('valor4')"></td>
+                    <td><span id="total4">$0</span></td>
+                </tr>
+                <tr>
+                    <td>$1.000</td>
+                    <td><input type="number" id="valor5" oninput="convert(1000, 'valor5', 'total5')" onfocus="focusInput('valor5')"></td>
+                    <td><span id="total5">$0</span></td>
+                </tr>
+                <tr>
+                    <td>$500</td>
+                    <td><input type="number" id="valor6" oninput="convert(500, 'valor6', 'total6')" onfocus="focusInput('valor6')"></td>
+                    <td><span id="total6">$0</span></td>
+                </tr>
+                <tr>
+                    <td>$100</td>
+                    <td><input type="number" id="valor7" oninput="convert(100, 'valor7', 'total7')" onfocus="focusInput('valor7')"></td>
+                    <td><span id="total7">$0</span></td>
+                </tr>
+                <tr>
+                    <td>$50</td>
+                    <td><input type="number" id="valor8" oninput="convert(50, 'valor8', 'total8')" onfocus="focusInput('valor8')"></td>
+                    <td><span id="total8">$0</span></td>
+                </tr>
+                <tr>
+                    <td>$10</td>
+                    <td><input type="number" id="valor9" oninput="convert(10, 'valor9', 'total9')" onfocus="focusInput('valor9')"></td>
+                    <td><span id="total9">$0</span></td>
+                </tr>
+                <tr>
+                    <td>$5</td>
+                    <td><input type="number" id="valor10" oninput="convert(5, 'valor10', 'total10')" onfocus="focusInput('valor10')"></td>
+                    <td><span id="total10">$0</span></td>
+                </tr>
+                <tr>
+                    <td>$1</td>
+                    <td><input type="number" id="valor11" oninput="convert(1, 'valor11', 'total11')" onfocus="focusInput('valor11')"></td>
+                    <td><span id="total11">$0</span></td>
+                </tr>
+            </table>
+            <div class="total">
+                Total: <span id="total">$0</span>
+            </div>
         </div>
-    </div>
+    </main>
+   <script>
+    function convert(value, inputId, outputId) {
+        const input = document.getElementById(inputId).value;
+        const output = document.getElementById(outputId);
+        output.textContent = `$${(value * input).toLocaleString('es-CL')}`;
+        updateTotal();
+        saveData();
+    }
 
-    <script>
-        function convert(value, inputId, outputId) {
-            const input = document.getElementById(inputId).value;
-            const output = document.getElementById(outputId);
-            output.textContent = `$${(value * input).toLocaleString('es-CL')}`;
-            updateTotal();
-            saveData();
+    function updateTotal() {
+        const values = [20000, 10000, 5000, 2000, 1000, 500, 100, 50, 10, 5, 1];
+        let sum = 0;
+        values.forEach((value, index) => {
+            const input = document.getElementById(`valor${index + 1}`).value;
+            sum += value * input;
+        });
+        document.getElementById('total').textContent = `$${sum.toLocaleString('es-CL')}`;
+    }
+
+    function saveData() {
+        const data = {
+            nombre: document.getElementById('nombre').value,
+            valor1: document.getElementById('valor1').value,
+            valor2: document.getElementById('valor2').value,
+            valor3: document.getElementById('valor3').value,
+            valor4: document.getElementById('valor4').value,
+            valor5: document.getElementById('valor5').value,
+            valor6: document.getElementById('valor6').value,
+            valor7: document.getElementById('valor7').value,
+            valor8: document.getElementById('valor8').value,
+            valor9: document.getElementById('valor9').value,
+            valor10: document.getElementById('valor10').value,
+            valor11: document.getElementById('valor11').value,
+            total: document.getElementById('total').textContent
+        };
+        localStorage.setItem('formData', JSON.stringify(data));
+    }
+
+    function loadData() {
+        const data = JSON.parse(localStorage.getItem('formData'));
+        if (data) {
+            document.getElementById('nombre').value = data.nombre || '';
+            document.getElementById('valor1').value = data.valor1 || 0;
+            document.getElementById('valor2').value = data.valor2 || 0;
+            document.getElementById('valor3').value = data.valor3 || 0;
+            document.getElementById('valor4').value = data.valor4 || 0;
+            document.getElementById('valor5').value = data.valor5 || 0;
+            document.getElementById('valor6').value = data.valor6 || 0;
+            document.getElementById('valor7').value = data.valor7 || 0;
+            document.getElementById('valor8').value = data.valor8 || 0;
+            document.getElementById('valor9').value = data.valor9 || 0;
+            document.getElementById('valor10').value = data.valor10 || 0;
+            document.getElementById('valor11').value = data.valor11 || 0;
+            document.getElementById('total').textContent = data.total || '$0';
         }
+    }
 
-        function updateTotal() {
-            const values = [20000, 10000, 5000, 2000, 1000, 500, 100, 50, 10, 5, 1];
-            let sum = 0;
-            values.forEach((value, index) => {
-                const input = document.getElementById(`input${index + 1}`).value;
-                sum += value * input;
-            });
-            document.getElementById('total').textContent = `$${sum.toLocaleString('es-CL')}`;
-        }
+    function updateTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('es-CL');
+        document.getElementById('startTime').textContent = timeString;
+    }
 
-        function saveData() {
-            const data = {
-                nombre: document.getElementById('nombre').value,
-                input1: document.getElementById('input1').value,
-                input2: document.getElementById('input2').value,
-                input3: document.getElementById('input3').value,
-                input4: document.getElementById('input4').value,
-                input5: document.getElementById('input5').value,
-                input6: document.getElementById('input6').value,
-                input7: document.getElementById('input7').value,
-                input8: document.getElementById('input8').value,
-                input9: document.getElementById('input9').value,
-                input10: document.getElementById('input10').value,
-                input11: document.getElementById('input11').value,
-                total: document.getElementById('total').textContent
-            };
-            localStorage.setItem('formData', JSON.stringify(data));
-        }
+    window.onload = function() {
+        loadData();
+        updateTime();
+    };
 
-        function loadData() {
-            const data = JSON.parse(localStorage.getItem('formData'));
-            if (data) {
-                document.getElementById('nombre').value = data.nombre;
-                document.getElementById('input1').value = data.input1;
-                document.getElementById('input2').value = data.input2;
-                document.getElementById('input3').value = data.input3;
-                document.getElementById('input4').value = data.input4;
-                document.getElementById('input5').value = data.input5;
-                document.getElementById('input6').value = data.input6;
-                document.getElementById('input7').value = data.input7;
-document.getElementById('input8').value = data.input8;
-document.getElementById('input9').value = data.input9;
-document.getElementById('input10').value = data.input10;
-document.getElementById('input11').value = data.input11;
-document.getElementById('total').textContent = data.total;
-}
-}
-
-function updateTime() {
-    const now = new Date();
-    const timeString = now.toLocaleTimeString('es-CL');
-    document.getElementById('startTime').textContent = timeString;
-}
-
-window.onload = function() {
-    loadData();
-    updateTime();
-};
-document.addEventListener('focusin', (event) => {
-    window.addEventListener('resize', function() {
-        if (window.innerHeight < 500) { // Ajusta este valor según el tamaño de tu pantalla
-            document.body.style.marginBottom = '300px'; // Ajusta este valor según sea necesario
-        } else {
-            document.body.style.marginBottom = '200px'; // Ajusta este valor según sea necesario
-        }
+    document.addEventListener('focusin', (event) => {
+        window.addEventListener('resize', function() {
+            if (window.innerHeight < 500) { // Ajusta este valor según el tamaño de tu pantalla
+                document.body.style.marginBottom = '300px'; // Ajusta este valor según sea necesario
+            } else {
+                document.body.style.marginBottom = '200px'; // Ajusta este valor según sea necesario
+            }
+        });
     });
-});
 </script>
 </body>
 </html>
